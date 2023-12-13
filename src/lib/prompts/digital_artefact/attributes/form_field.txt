@@ -1,0 +1,9 @@
+Considering the following digital artefact and its attributes:
+Artefact Name: form_field
+Attributes:
+	- field
+	- value
+	- description
+	- purpose
+
+Please fill the following attributes if they are mentioned in the node_string:

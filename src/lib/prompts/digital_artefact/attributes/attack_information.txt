@@ -1,0 +1,6 @@
+Considering the following digital artefact and its attributes:
+Artefact Name: attack_information
+Attributes:
+	- type
+
+Please fill the following attributes if they are mentioned in the node_string:

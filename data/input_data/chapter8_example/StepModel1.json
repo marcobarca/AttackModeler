@@ -1,0 +1,51 @@
+{
+    "StepModel": {
+      "Steps": [
+        {
+          "StepNumber": 1,
+          "StepString": "The website has directory listing active, connecting to it two files are listed: login.php and login.php.bak."
+        },
+        {
+          "StepNumber": 2,
+          "StepString": "The login.php.bak file contains the PHP source code."
+        },
+        {
+          "StepNumber": 3,
+          "StepString": "Analyzing the PHP source code, it is revealed that a cookie named otadmin must be passed, and its format must follow the regex: /^{\"hash\": [0-9A-Z\"]+}$/."
+        },
+        {
+          "StepNumber": 4,
+          "StepString": "A correct value for the otadmin cookie is identified: {\"hash\": \"T35T\"}."
+        },
+        {
+          "StepNumber": 5,
+          "StepString": "If the passed value for the otadmin cookie is different from the MD5 hash of the $cfg_pass variable, a hint is given."
+        },
+        {
+          "StepNumber": 6,
+          "StepString": "The hint is obtained by a PHP snippet that performs an AND operation between the ASCII value of each character in the MD5 hash and the constant 0xC0 (i.e., 11000000)."
+        },
+        {
+          "StepNumber": 7,
+          "StepString": "The script identifies that the first three characters of the hash are 0, indicating that the original characters were numbers."
+        },
+        {
+          "StepNumber": 8,
+          "StepString": "The potential vulnerability is located in a type juggling in the comparison: $session_data['hash'] != strtoupper(MD5($cfg_pass))."
+        },
+        {
+          "StepNumber": 9,
+          "StepString": "To exploit the vulnerability, the attacker must guess the numbers at the beginning of the MD5 string."
+        },
+        {
+          "StepNumber": 10,
+          "StepString": "A Python script (my-admin-panel.py) is provided to automate the process of checking different cookie values and finding the correct one."
+        },
+        {
+          "StepNumber": 11,
+          "StepString": "With the cookie otadmin={\"hash\": 389}, the flag is obtained: p4{wtf_php_comparisons_how_do_they_work}."
+        }
+      ]
+    }
+  }
+  

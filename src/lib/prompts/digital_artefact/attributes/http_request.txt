@@ -1,0 +1,11 @@
+Considering the following digital artefact and its attributes:
+Artefact Name: http_request
+Attributes:
+	- data
+	- method
+	- parameters
+	- headers
+	- route
+	- description
+
+Please fill the following attributes if they are mentioned in the node_string:

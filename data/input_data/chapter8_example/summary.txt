@@ -1,0 +1,11 @@
+The website has directory listing active, connecting to it two files are listed: login.php and login.php.bak.
+The login.php.bak file contains the PHP source code.
+Analyzing the PHP source code, it is revealed that a cookie named otadmin must be passed, and its format must follow the regex: /^{"hash": [0-9A-Z\"]+}$/.
+A correct value for the otadmin cookie is identified: {"hash": "T35T"}.
+If the passed value for the otadmin cookie is different from the MD5 hash of the $cfg_pass variable, a hint is given.
+The hint is obtained by a PHP snippet that performs an AND operation between the ASCII value of each character in the MD5 hash and the constant 0xC0 (i.e., 11000000).
+The script identifies that the first three characters of the hash are 0, indicating that the original characters were numbers.
+The potential vulnerability is located in a type juggling in the comparison: $session_data['hash'] != strtoupper(MD5($cfg_pass)).
+To exploit the vulnerability, the attacker must guess the numbers at the beginning of the MD5 string.
+A Python script (my-admin-panel.py) is provided to automate the process of checking different cookie values and finding the correct one.
+With the cookie otadmin={"hash": 389}, the flag is obtained: p4{wtf_php_comparisons_how_do_they_work}.

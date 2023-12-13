@@ -1,0 +1,37 @@
+### Technique Ranking ###
+* TECHNIQUE RANKING:
+1. Token and Cookie Management: 3 occurrences
+2. Code Review and Analysis: 2 occurrences
+3. Data Encoding/Decoding: 2 occurrences
+4. Webpage Access: 1 occurrences
+5. Webpage Elements Interaction and Testing: 1 occurrences
+6. File and Directory Discovery: 1 occurrences
+7. Gameplay Strategy Observation and Understanding: 1 occurrences
+8. Cryptographic Technique Application: 1 occurrences
+9. Vulnerability Identification and Analysis: 1 occurrences
+10. Cryptographic Algorithm Identification and Analysis: 1 occurrences
+11. Cryptographic Exploitation Techniques: 1 occurrences
+12. Tool Configuration and Setup: 1 occurrences
+13. Script Development: 1 occurrences
+14. Flag Data Leakage and Extraction: 1 occurrences
+
+### Technique-Digital_Artefact Pair Ranking ###
+* TECHNIQUE-DIGITAL_ARTEFACT Pair Ranking:
+1.Token and Cookie Management - cookie: 3 occurrences
+2.Code Review and Analysis - code: 2 occurrences
+3.Data Encoding/Decoding - encoded_data: 2 occurrences
+4.Token and Cookie Management - hash_value: 2 occurrences
+5.Webpage Elements Interaction and Testing - file: 1 occurrences
+6.File and Directory Discovery - file: 1 occurrences
+7.Code Review and Analysis - cookie: 1 occurrences
+8.Data Encoding/Decoding - cookie: 1 occurrences
+9.Cryptographic Technique Application - hash_value: 1 occurrences
+10.Data Encoding/Decoding - hash_value: 1 occurrences
+11.Vulnerability Identification and Analysis - vulnerability: 1 occurrences
+12.Cryptographic Algorithm Identification and Analysis - hash_value: 1 occurrences
+13.Cryptographic Exploitation Techniques - vulnerability: 1 occurrences
+14.Cryptographic Exploitation Techniques - hash_value: 1 occurrences
+15.Tool Configuration and Setup - code: 1 occurrences
+16.Tool Configuration and Setup - tool: 1 occurrences
+17.Script Development - cookie: 1 occurrences
+18.Flag Data Leakage and Extraction - flag: 1 occurrences

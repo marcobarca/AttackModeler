@@ -1,0 +1,8 @@
+Considering the following digital artefact and its attributes:
+Artefact Name: code
+Attributes:
+	- language
+	- description
+	- context
+
+Please fill the following attributes if they are mentioned in the node_string:

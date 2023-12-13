@@ -1,0 +1,11 @@
+Considering the following digital artefact and its attributes:
+Artefact Name: http_response
+Attributes:
+	- data
+	- headers
+	- content
+	- format
+	- description
+	- status
+
+Please fill the following attributes if they are mentioned in the node_string:

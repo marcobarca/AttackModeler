@@ -1,0 +1,9 @@
+Considering the following digital artefact and its attributes:
+Artefact Name: library
+Attributes:
+	- library_name
+	- description
+	- language
+	- documentation
+
+Please fill the following attributes if they are mentioned in the node_string:

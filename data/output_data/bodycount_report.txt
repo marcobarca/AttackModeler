@@ -1,0 +1,445 @@
+--------------------------------------------------------------------------------
+Node: 1.1
+	* String: Visited the website.
+	* Technique: Web Page Access
+	* Digital Artefacts:
+		- No digital artefacts
+	* Neighbors:
+		- Node: 2.2
+			* String: Confirmed server-side file inclusion.
+			* Technique: Vulnerability Discovery
+			* Digital Artefacts:
+				- file | Attributes: {'filename': '', 'extension': '', 'description': 'Confirmed server-side file inclusion.'}
+		- Node: 1.2
+			* String: Observed redirection to '/?file=wc.php'.
+			* Technique: HTTP Response Inspection
+			* Digital Artefacts:
+				- file | Attributes: {'filename': 'wc', 'extension': 'php', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 1.2
+	* String: Observed redirection to '/?file=wc.php'.
+	* Technique: HTTP Response Inspection
+	* Digital Artefacts:
+		- file | Attributes: {'filename': 'wc', 'extension': 'php', 'description': ''}
+	* Neighbors:
+		- Node: 2.1
+			* String: Visited '/?file=/etc/passwd'.
+			* Technique: Web Page Access
+			* Digital Artefacts:
+				- file | Attributes: {'filename': '/etc/passwd', 'extension': '', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 2.1
+	* String: Visited '/?file=/etc/passwd'.
+	* Technique: Web Page Access
+	* Digital Artefacts:
+		- file | Attributes: {'filename': '/etc/passwd', 'extension': '', 'description': ''}
+	* Neighbors:
+		- Node: 2.2
+			* String: Confirmed server-side file inclusion.
+			* Technique: Vulnerability Discovery
+			* Digital Artefacts:
+				- file | Attributes: {'filename': '', 'extension': '', 'description': 'Confirmed server-side file inclusion.'}
+--------------------------------------------------------------------------------
+Node: 2.2
+	* String: Confirmed server-side file inclusion.
+	* Technique: Vulnerability Discovery
+	* Digital Artefacts:
+		- file | Attributes: {'filename': '', 'extension': '', 'description': 'Confirmed server-side file inclusion.'}
+	* Neighbors:
+		- Node: 3.1
+			* String: Discorded 'robots.txt' file at '?file=robots.txt'.
+			* Technique: Web Page Access
+			* Digital Artefacts:
+				- file | Attributes: {'filename': 'robots', 'extension': 'txt', 'description': ''}
+				- url | Attributes: {'value': '?file=robots.txt', 'description': '', 'purpose': '', 'parameters': ''}
+--------------------------------------------------------------------------------
+Node: 3.1
+	* String: Discorded 'robots.txt' file at '?file=robots.txt'.
+	* Technique: Web Page Access
+	* Digital Artefacts:
+		- file | Attributes: {'filename': 'robots', 'extension': 'txt', 'description': ''}
+		- url | Attributes: {'value': '?file=robots.txt', 'description': '', 'purpose': '', 'parameters': ''}
+	* Neighbors:
+		- Node: 3.2
+			* String: Discovered the existence of 'checkpass.php'.
+			* Technique: File Discovery
+			* Digital Artefacts:
+				- file | Attributes: {'filename': 'checkpass', 'extension': 'php', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 3.2
+	* String: Discovered the existence of 'checkpass.php'.
+	* Technique: File Discovery
+	* Digital Artefacts:
+		- file | Attributes: {'filename': 'checkpass', 'extension': 'php', 'description': ''}
+	* Neighbors:
+		- Node: 4.1
+			* String: Visited '/?file=checkpass.php'.
+			* Technique: Web Page Access
+			* Digital Artefacts:
+				- file | Attributes: {'filename': 'checkpass', 'extension': 'php', 'description': ''}
+				- path | Attributes: {'directory': '/?file=checkpass.php', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 4.1
+	* String: Visited '/?file=checkpass.php'.
+	* Technique: Web Page Access
+	* Digital Artefacts:
+		- file | Attributes: {'filename': 'checkpass', 'extension': 'php', 'description': ''}
+		- path | Attributes: {'directory': '/?file=checkpass.php', 'description': ''}
+	* Neighbors:
+		- Node: 4.2
+			* String: Realized the page contained some secret potentially usable code.
+			* Technique: Page Behavior Analysis
+			* Digital Artefacts:
+				- code | Attributes: {'language': '', 'description': '', 'context': 'page'}
+--------------------------------------------------------------------------------
+Node: 4.2
+	* String: Realized the page contained some secret potentially usable code.
+	* Technique: Page Behavior Analysis
+	* Digital Artefacts:
+		- code | Attributes: {'language': '', 'description': '', 'context': 'page'}
+	* Neighbors:
+		- Node: 5.1
+			* String: Used 'php://filter' to view the source of 'checkpass.php'.
+			* Technique: File Access
+			* Digital Artefacts:
+				- file | Attributes: {'filename': 'checkpass', 'extension': 'php', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 5.1
+	* String: Used 'php://filter' to view the source of 'checkpass.php'.
+	* Technique: File Access
+	* Digital Artefacts:
+		- file | Attributes: {'filename': 'checkpass', 'extension': 'php', 'description': ''}
+	* Neighbors:
+		- Node: 5.2
+			* String: Discovered the password 'w0rdc0unt123'.
+			* Technique: Data Extraction
+			* Digital Artefacts:
+		- No digital artefacts
+--------------------------------------------------------------------------------
+Node: 5.2
+	* String: Discovered the password 'w0rdc0unt123'.
+	* Technique: Data Extraction
+	* Digital Artefacts:
+		- No digital artefacts
+	* Neighbors:
+		- Node: 6.1
+			* String: Used 'php://filter' again.
+			* Technique: Code Analysis
+			* Digital Artefacts:
+				- code | Attributes: {'language': 'php', 'description': '', 'context': ''}
+--------------------------------------------------------------------------------
+Node: 6.1
+	* String: Used 'php://filter' again.
+	* Technique: Code Analysis
+	* Digital Artefacts:
+		- code | Attributes: {'language': 'php', 'description': '', 'context': ''}
+	* Neighbors:
+		- Node: 6.2
+			* String: Decoded base64 strings to view the source code of 'wc.php'.
+			* Technique: Data Decoding
+			* Digital Artefacts:
+				- code | Attributes: {'language': '', 'description': '', 'context': ''}
+		- Node: 14.1
+			* String: Executed './findaas flag.txt' command.
+			* Technique: Command Execution
+			* Digital Artefacts:
+				- file | Attributes: {'filename': 'flag', 'extension': 'txt', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 6.2
+	* String: Decoded base64 strings to view the source code of 'wc.php'.
+	* Technique: Data Decoding
+	* Digital Artefacts:
+		- code | Attributes: {'language': '', 'description': '', 'context': ''}
+	* Neighbors:
+		- Node: 7.1
+			* String: Plugged the password ('w0rdc0unt123') from '$password' variable to the cookie.
+			* Technique: Cookie Tampering
+			* Digital Artefacts:
+				- cookie | Attributes: {'name': '', 'value': '', 'exipration_time': '', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 7.1
+	* String: Plugged the password ('w0rdc0unt123') from '$password' variable to the cookie.
+	* Technique: Cookie Tampering
+	* Digital Artefacts:
+		- cookie | Attributes: {'name': '', 'value': '', 'exipration_time': '', 'description': ''}
+	* Neighbors:
+		- Node: 7.2
+			* String: Accessed the webpage.
+			* Technique: Web Page Access
+			* Digital Artefacts:
+		- No digital artefacts
+--------------------------------------------------------------------------------
+Node: 7.2
+	* String: Accessed the webpage.
+	* Technique: Web Page Access
+	* Digital Artefacts:
+		- No digital artefacts
+	* Neighbors:
+		- Node: 8.1
+			* String: Identified that the user input '$text' from get param 'text' was being used.
+			* Technique: Input Analysis
+			* Digital Artefacts:
+				- input_data | Attributes: {'fields': '', 'description': "Identified that the user input '$text' from get param 'text' was being used.", 'context': ''}
+--------------------------------------------------------------------------------
+Node: 8.1
+	* String: Identified that the user input '$text' from get param 'text' was being used.
+	* Technique: Input Analysis
+	* Digital Artefacts:
+		- input_data | Attributes: {'fields': '', 'description': "Identified that the user input '$text' from get param 'text' was being used.", 'context': ''}
+	* Neighbors:
+		- Node: 14.1
+			* String: Executed './findaas flag.txt' command.
+			* Technique: Command Execution
+			* Digital Artefacts:
+				- file | Attributes: {'filename': 'flag', 'extension': 'txt', 'description': ''}
+		- Node: 8.2
+			* String: Realized '$text' was passed into 'exec' leading to potential remote code execution.
+			* Technique: Code Execution
+			* Digital Artefacts:
+				- code | Attributes: {'language': '', 'description': 'potential remote code execution', 'context': ''}
+				- vulnerability | Attributes: {'type': '', 'cve_number': ''}
+--------------------------------------------------------------------------------
+Node: 8.2
+	* String: Realized '$text' was passed into 'exec' leading to potential remote code execution.
+	* Technique: Code Execution
+	* Digital Artefacts:
+		- code | Attributes: {'language': '', 'description': 'potential remote code execution', 'context': ''}
+		- vulnerability | Attributes: {'type': '', 'cve_number': ''}
+	* Neighbors:
+		- Node: 9.1
+			* String: Input the payload '; ls #'.
+			* Technique: Command Execution
+			* Digital Artefacts:
+				- input_data | Attributes: {'fields': '', 'description': '', 'context': ''}
+				- shell_command | Attributes: {'command': '', 'description': '', 'usage': ''}
+--------------------------------------------------------------------------------
+Node: 9.1
+	* String: Input the payload '; ls #'.
+	* Technique: Command Execution
+	* Digital Artefacts:
+		- input_data | Attributes: {'fields': '', 'description': '', 'context': ''}
+		- shell_command | Attributes: {'command': '', 'description': '', 'usage': ''}
+	* Neighbors:
+		- Node: 10.1
+			* String: Realized 'echo exec(...)' only returns the last line of the output.
+			* Technique: Code Analysis
+			* Digital Artefacts:
+				- code | Attributes: {'language': '', 'description': "Realized 'echo exec(...)' only returns the last line of the output.", 'context': ''}
+--------------------------------------------------------------------------------
+Node: 10.1
+	* String: Realized 'echo exec(...)' only returns the last line of the output.
+	* Technique: Code Analysis
+	* Digital Artefacts:
+		- code | Attributes: {'language': '', 'description': "Realized 'echo exec(...)' only returns the last line of the output.", 'context': ''}
+	* Neighbors:
+		- Node: 11.1
+			* String: Input the payload to attempt to spawn a reverse shell.
+			* Technique: Command Execution
+			* Digital Artefacts:
+				- shell_command | Attributes: {'command': 'spawn a reverse shell', 'description': '', 'usage': 'Input the payload to attempt to spawn a reverse shell.'}
+--------------------------------------------------------------------------------
+Node: 11.1
+	* String: Input the payload to attempt to spawn a reverse shell.
+	* Technique: Command Execution
+	* Digital Artefacts:
+		- shell_command | Attributes: {'command': 'spawn a reverse shell', 'description': '', 'usage': 'Input the payload to attempt to spawn a reverse shell.'}
+	* Neighbors:
+		- Node: 12.1
+			* String: Used shell access to browse the file system.
+			* Technique: File System Observation
+			* Digital Artefacts:
+				- file | Attributes: {'filename': '', 'extension': '', 'description': ''}
+				- shell_command | Attributes: {'command': '', 'description': 'Used shell access to browse the file system.', 'usage': ''}
+--------------------------------------------------------------------------------
+Node: 12.1
+	* String: Used shell access to browse the file system.
+	* Technique: File System Observation
+	* Digital Artefacts:
+		- file | Attributes: {'filename': '', 'extension': '', 'description': ''}
+		- shell_command | Attributes: {'command': '', 'description': 'Used shell access to browse the file system.', 'usage': ''}
+	* Neighbors:
+		- Node: 12.2
+			* String: Discovered a folder '/ctf'.
+			* Technique: File Discovery
+			* Digital Artefacts:
+				- folder | Attributes: {'name': '/ctf', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 12.2
+	* String: Discovered a folder '/ctf'.
+	* Technique: File Discovery
+	* Digital Artefacts:
+		- folder | Attributes: {'name': '/ctf', 'description': ''}
+	* Neighbors:
+		- Node: 13.1
+			* String: Identified notable shell script 'findaas' inside '/ctf'.
+			* Technique: File Discovery
+			* Digital Artefacts:
+				- file | Attributes: {'filename': 'findaas', 'extension': '', 'description': ''}
+				- shell_command | Attributes: {'command': 'findaas', 'description': '', 'usage': '/ctf'}
+				- path | Attributes: {'directory': '/ctf', 'description': ''}
+				- folder | Attributes: {'name': '/ctf', 'description': "Identified notable shell script 'findaas'"}
+--------------------------------------------------------------------------------
+Node: 13.1
+	* String: Identified notable shell script 'findaas' inside '/ctf'.
+	* Technique: File Discovery
+	* Digital Artefacts:
+		- file | Attributes: {'filename': 'findaas', 'extension': '', 'description': ''}
+		- shell_command | Attributes: {'command': 'findaas', 'description': '', 'usage': '/ctf'}
+		- path | Attributes: {'directory': '/ctf', 'description': ''}
+		- folder | Attributes: {'name': '/ctf', 'description': "Identified notable shell script 'findaas'"}
+	* Neighbors:
+		- Node: 14.1
+			* String: Executed './findaas flag.txt' command.
+			* Technique: Command Execution
+			* Digital Artefacts:
+				- file | Attributes: {'filename': 'flag', 'extension': 'txt', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 14.1
+	* String: Executed './findaas flag.txt' command.
+	* Technique: Command Execution
+	* Digital Artefacts:
+		- file | Attributes: {'filename': 'flag', 'extension': 'txt', 'description': ''}
+	* Neighbors:
+		- Node: 14.2
+			* String: Located 'flag.txt'.
+			* Technique: File Discovery
+			* Digital Artefacts:
+				- file | Attributes: {'filename': 'flag', 'extension': 'txt', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 14.2
+	* String: Located 'flag.txt'.
+	* Technique: File Discovery
+	* Digital Artefacts:
+		- file | Attributes: {'filename': 'flag', 'extension': 'txt', 'description': ''}
+	* Neighbors:
+		- Node: 15.1
+			* String: Attempted to read the flag using 'cat ./system/of/a/down/flag.txt'.
+			* Technique: File Access
+			* Digital Artefacts:
+				- file | Attributes: {'filename': 'flag', 'extension': 'txt', 'description': ''}
+				- shell_command | Attributes: {'command': 'cat ./system/of/a/down/flag.txt', 'description': '', 'usage': ''}
+				- flag | Attributes: {'flag': './system/of/a/down/flag.txt', 'description': '', 'context': ''}
+--------------------------------------------------------------------------------
+Node: 15.1
+	* String: Attempted to read the flag using 'cat ./system/of/a/down/flag.txt'.
+	* Technique: File Access
+	* Digital Artefacts:
+		- file | Attributes: {'filename': 'flag', 'extension': 'txt', 'description': ''}
+		- shell_command | Attributes: {'command': 'cat ./system/of/a/down/flag.txt', 'description': '', 'usage': ''}
+		- flag | Attributes: {'flag': './system/of/a/down/flag.txt', 'description': '', 'context': ''}
+	* Neighbors:
+		- Node: 15.2
+			* String: Received permission denied error.
+			* Technique: Permission Analysis
+			* Digital Artefacts:
+		- No digital artefacts
+--------------------------------------------------------------------------------
+Node: 15.2
+	* String: Received permission denied error.
+	* Technique: Permission Analysis
+	* Digital Artefacts:
+		- No digital artefacts
+	* Neighbors:
+		- Node: 16.1
+			* String: Read the 'README' file.
+			* Technique: Data Analysis
+			* Digital Artefacts:
+				- file | Attributes: {'filename': 'README', 'extension': '', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 16.1
+	* String: Read the 'README' file.
+	* Technique: Data Analysis
+	* Digital Artefacts:
+		- file | Attributes: {'filename': 'README', 'extension': '', 'description': ''}
+	* Neighbors:
+		- Node: 16.2
+			* String: Found a password hash '6f246c872cbf0b7fd7530b7aa235e67e'.
+			* Technique: Hash Analysis
+			* Digital Artefacts:
+				- hash_value | Attributes: {'hash': '6f246c872cbf0b7fd7530b7aa235e67e', 'algorithm': '', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 16.2
+	* String: Found a password hash '6f246c872cbf0b7fd7530b7aa235e67e'.
+	* Technique: Hash Analysis
+	* Digital Artefacts:
+		- hash_value | Attributes: {'hash': '6f246c872cbf0b7fd7530b7aa235e67e', 'algorithm': '', 'description': ''}
+	* Neighbors:
+		- Node: 17.1
+			* String: Decoded the password hash.
+			* Technique: Hash Decoding
+			* Digital Artefacts:
+				- hash_value | Attributes: {'hash': 'decoded password hash', 'algorithm': '', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 17.1
+	* String: Decoded the password hash.
+	* Technique: Hash Decoding
+	* Digital Artefacts:
+		- hash_value | Attributes: {'hash': 'decoded password hash', 'algorithm': '', 'description': ''}
+	* Neighbors:
+		- Node: 19.2
+			* String: Printed the flag.
+			* Technique: Data Extraction
+			* Digital Artefacts:
+				- flag | Attributes: {'flag': 'Printed the flag.', 'description': '', 'context': ''}
+		- Node: 17.2
+			* String: Found password 'csictf'.
+			* Technique: Credentials Discovery
+			* Digital Artefacts:
+				- credentials | Attributes: {'username': '', 'password': 'csictf', 'service': ''}
+--------------------------------------------------------------------------------
+Node: 17.2
+	* String: Found password 'csictf'.
+	* Technique: Credentials Discovery
+	* Digital Artefacts:
+		- credentials | Attributes: {'username': '', 'password': 'csictf', 'service': ''}
+	* Neighbors:
+		- Node: 18.1
+			* String: Switched to the user 'ctf'.
+			* Technique: Authentication
+			* Digital Artefacts:
+		- No digital artefacts
+--------------------------------------------------------------------------------
+Node: 18.1
+	* String: Switched to the user 'ctf'.
+	* Technique: Authentication
+	* Digital Artefacts:
+		- No digital artefacts
+	* Neighbors:
+		- Node: 18.2
+			* String: Authenticated using the password 'csictf'.
+			* Technique: Authentication
+			* Digital Artefacts:
+				- credentials | Attributes: {'username': '', 'password': 'csictf', 'service': ''}
+--------------------------------------------------------------------------------
+Node: 18.2
+	* String: Authenticated using the password 'csictf'.
+	* Technique: Authentication
+	* Digital Artefacts:
+		- credentials | Attributes: {'username': '', 'password': 'csictf', 'service': ''}
+	* Neighbors:
+		- Node: 19.1
+			* String: Executed 'cat ./system/of/a/down/flag.txt' command.
+			* Technique: Command Execution
+			* Digital Artefacts:
+				- path | Attributes: {'directory': './system/of/a/down', 'description': ''}
+				- shell_command | Attributes: {'command': 'cat ./system/of/a/down/flag.txt', 'description': '', 'usage': ''}
+--------------------------------------------------------------------------------
+Node: 19.1
+	* String: Executed 'cat ./system/of/a/down/flag.txt' command.
+	* Technique: Command Execution
+	* Digital Artefacts:
+		- path | Attributes: {'directory': './system/of/a/down', 'description': ''}
+		- shell_command | Attributes: {'command': 'cat ./system/of/a/down/flag.txt', 'description': '', 'usage': ''}
+	* Neighbors:
+		- Node: 19.2
+			* String: Printed the flag.
+			* Technique: Data Extraction
+			* Digital Artefacts:
+				- flag | Attributes: {'flag': 'Printed the flag.', 'description': '', 'context': ''}
+--------------------------------------------------------------------------------
+Node: 19.2
+	* String: Printed the flag.
+	* Technique: Data Extraction
+	* Digital Artefacts:
+		- flag | Attributes: {'flag': 'Printed the flag.', 'description': '', 'context': ''}
+	* No Neighbors

@@ -1,0 +1,8 @@
+Considering the following digital artefact and its attributes:
+Artefact Name: file
+Attributes:
+	- filename
+	- extension
+	- description
+
+Please fill the following attributes if they are mentioned in the node_string:

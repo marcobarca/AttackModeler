@@ -1,0 +1,7 @@
+Considering the following digital artefact and its attributes:
+Artefact Name: path
+Attributes:
+	- directory
+	- description
+
+Please fill the following attributes if they are mentioned in the node_string:

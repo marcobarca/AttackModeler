@@ -1,0 +1,9 @@
+Considering the following digital artefact and its attributes:
+Artefact Name: cookie
+Attributes:
+	- name
+	- value
+	- expiration_time
+	- description
+
+Please fill the following attributes if they are mentioned in the node_string:

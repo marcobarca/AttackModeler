@@ -1,0 +1,35 @@
+I will give you a step extracted from a CTF writeup represented as a JSON. Starting from the string, if you find any of the following artefacts within it, you should insert them into the appropriate field of the JSON.
+Here is the list of digital artifacts you need to look for:
+
+file
+log
+path
+folder
+url
+cookie
+credentials
+key
+token
+sql_query
+database_record
+ip_address
+http_request
+http_response
+hash_value
+digital_signature
+metadata
+encoded_data
+shell_command
+json_data
+input_data
+flag
+system_information
+form_field
+code
+library
+tool
+vulnerability
+attack_information
+
+Reply just with the artefacts you find and put them inside a list ["artifact1", "artifact2", ...].
+Here's the json:

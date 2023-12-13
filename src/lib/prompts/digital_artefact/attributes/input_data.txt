@@ -1,0 +1,8 @@
+Considering the following digital artefact and its attributes:
+Artefact Name: input_data
+Attributes:
+	- fields
+	- description
+	- context
+
+Please fill the following attributes if they are mentioned in the node_string:

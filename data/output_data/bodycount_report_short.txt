@@ -1,0 +1,120 @@
+--------------------------------------------------------------------------------
+Node: 1.1
+	* String: Visited the website.
+	* Technique: Web Page Access
+	* Digital Artefacts:
+		- No digital artefacts
+	* Neighbors:
+		- Node: 1.2
+			* String: Observed redirection to '/?file=wc.php'.
+			* Technique: HTTP Response Inspection
+			* Digital Artefacts:
+		- No digital artefacts
+		- Node: 2.2
+			* String: Confirmed server-side file inclusion.
+			* Technique: Vulnerability Discovery
+			* Digital Artefacts:
+		- No digital artefacts
+--------------------------------------------------------------------------------
+Node: 1.2
+	* String: Observed redirection to '/?file=wc.php'.
+	* Technique: HTTP Response Inspection
+	* Digital Artefacts:
+		- No digital artefacts
+	* Neighbors:
+		- Node: 2.1
+			* String: Visited '/?file=/etc/passwd'.
+			* Technique: Web Page Access
+			* Digital Artefacts:
+		- No digital artefacts
+--------------------------------------------------------------------------------
+Node: 2.1
+	* String: Visited '/?file=/etc/passwd'.
+	* Technique: Web Page Access
+	* Digital Artefacts:
+		- No digital artefacts
+	* Neighbors:
+		- Node: 2.2
+			* String: Confirmed server-side file inclusion.
+			* Technique: Vulnerability Discovery
+			* Digital Artefacts:
+		- No digital artefacts
+--------------------------------------------------------------------------------
+Node: 2.2
+	* String: Confirmed server-side file inclusion.
+	* Technique: Vulnerability Discovery
+	* Digital Artefacts:
+		- No digital artefacts
+	* Neighbors:
+		- Node: 3.1
+			* String: Discorded 'robots.txt' file at '?file=robots.txt'.
+			* Technique: Web Page Access
+			* Digital Artefacts:
+		- No digital artefacts
+--------------------------------------------------------------------------------
+Node: 3.1
+	* String: Discorded 'robots.txt' file at '?file=robots.txt'.
+	* Technique: Web Page Access
+	* Digital Artefacts:
+		- No digital artefacts
+	* Neighbors:
+		- Node: 3.2
+			* String: Discovered the existence of 'checkpass.php'.
+			* Technique: File Discovery
+			* Digital Artefacts:
+		- No digital artefacts
+--------------------------------------------------------------------------------
+Node: 3.2
+	* String: Discovered the existence of 'checkpass.php'.
+	* Technique: File Discovery
+	* Digital Artefacts:
+		- No digital artefacts
+	* Neighbors:
+		- Node: 4.1
+			* String: Visited '/?file=checkpass.php'.
+			* Technique: Web Page Access
+			* Digital Artefacts:
+		- No digital artefacts
+--------------------------------------------------------------------------------
+Node: 4.1
+	* String: Visited '/?file=checkpass.php'.
+	* Technique: Web Page Access
+	* Digital Artefacts:
+		- No digital artefacts
+	* Neighbors:
+		- Node: 4.2
+			* String: Realized the page contained some secret potentially usable code.
+			* Technique: Page Behavior Analysis
+			* Digital Artefacts:
+		- No digital artefacts
+--------------------------------------------------------------------------------
+Node: 4.2
+	* String: Realized the page contained some secret potentially usable code.
+	* Technique: Page Behavior Analysis
+	* Digital Artefacts:
+		- No digital artefacts
+	* Neighbors:
+		- Node: 5.1
+			* String: Used 'php://filter' to view the source of 'checkpass.php'.
+			* Technique: File Access
+			* Digital Artefacts:
+		- No digital artefacts
+--------------------------------------------------------------------------------
+Node: 5.1
+	* String: Used 'php://filter' to view the source of 'checkpass.php'.
+	* Technique: File Access
+	* Digital Artefacts:
+		- No digital artefacts
+	* Neighbors:
+		- Node: 5.2
+			* String: Discovered the password 'w0rdc0unt123'.
+			* Technique: Data Extraction
+			* Digital Artefacts:
+		- No digital artefacts
+--------------------------------------------------------------------------------
+Node: 5.2
+	* String: Discovered the password 'w0rdc0unt123'.
+	* Technique: Data Extraction
+	* Digital Artefacts:
+		- No digital artefacts
+	* No Neighbors

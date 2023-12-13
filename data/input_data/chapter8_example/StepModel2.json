@@ -1,0 +1,196 @@
+{
+    "Steps": [
+        {
+            "StepNumber": 1,
+            "StepString": "The website has directory listing active, connecting to it two files are listed: login.php and login.php.bak.",
+            "Substeps": [
+                {
+                    "SubstepNumber": 1.1,
+                    "SubstepString": "Connect to the website with active directory listing.",
+                    "Category": "Web Interaction and Navigation",
+                    "Subcategory": "Webpage Interaction",
+                    "Techniques": "Webpage Access"
+                },
+                {
+                    "SubstepNumber": 1.2,
+                    "SubstepString": "Observe the presence of two files: login.php and login.php.bak.",
+                    "Category": "Web Interaction and Navigation",
+                    "Subcategory": "Webpage Interaction",
+                    "Techniques": "Webpage Elements Interaction and Testing"
+                }
+            ]
+        },
+        {
+            "StepNumber": 2,
+            "StepString": "The login.php.bak file contains the PHP source code.",
+            "Substeps": [
+                {
+                    "SubstepNumber": 2.1,
+                    "SubstepString": "Access the content of the login.php.bak file.",
+                    "Category": "System Profiling and Analysis",
+                    "Subcategory": "System Structure Analysis",
+                    "Techniques": "File and Directory Discovery"
+                },
+                {
+                    "SubstepNumber": 2.2,
+                    "SubstepString": "Identify and analyze the PHP source code within login.php.bak.",
+                    "Category": "Code Analysis and Debugging",
+                    "Subcategory": "Debugging Techniques",
+                    "Techniques": "Code Review and Analysis"
+                }
+            ]
+        },
+        {
+            "StepNumber": 3,
+            "StepString": "Analyzing the PHP source code, it is revealed that a cookie named otadmin must be passed, and its format must follow the regex: /^{\"hash\": [0-9A-Z\"]+}$/.",
+            "Substeps": [
+                {
+                    "SubstepNumber": 3.1,
+                    "SubstepString": "Examine the PHP source code for the specified cookie requirement.",
+                    "Category": "Code Analysis and Debugging",
+                    "Subcategory": "Debugging Techniques",
+                    "Techniques": "Code Review and Analysis"
+                },
+                {
+                    "SubstepNumber": 3.2,
+                    "SubstepString": "Identify the regex pattern /^{\"hash\": [0-9A-Z\"]+}$/ for the otadmin cookie.",
+                    "Category": "Cryptography and Encoding Management",
+                    "Subcategory": "Cryptographic Data Transformation",
+                    "Techniques": "Data Encoding/Decoding"
+                }
+            ]
+        },
+        {
+            "StepNumber": 4,
+            "StepString": "A correct value for the otadmin cookie is identified: {\"hash\": \"T35T\"}.",
+            "Substeps": [
+                {
+                    "SubstepNumber": 4.1,
+                    "SubstepString": "Determine a valid value for the otadmin cookie: {\"hash\": \"T35T\"}.",
+                    "Category": "Authentication and Authorization Management",
+                    "Subcategory": "Credential Management",
+                    "Techniques": "Token and Cookie Management"
+                }
+            ]
+        },
+        {
+            "StepNumber": 5,
+            "StepString": "If the passed value for the otadmin cookie is different from the MD5 hash of the $cfg_pass variable, a hint is given.",
+            "Substeps": [
+                {
+                    "SubstepNumber": 5.1,
+                    "SubstepString": "Check if the provided otadmin cookie value differs from the MD5 hash of $cfg_pass.",
+                    "Category": "Authentication and Authorization Management",
+                    "Subcategory": "Credential Management",
+                    "Techniques": "Token and Cookie Management"
+                },
+                {
+                    "SubstepNumber": 5.2,
+                    "SubstepString": "Provide a hint if the values do not match.",
+                    "Category": "Challenge and Strategy Management",
+                    "Subcategory": "Gameplay Strategy Management",
+                    "Techniques": "Gameplay Strategy Observation and Understanding"
+                }
+            ]
+        },
+        {
+            "StepNumber": 6,
+            "StepString": "The hint is obtained by a PHP snippet that performs an AND operation between the ASCII value of each character in the MD5 hash and the constant 0xC0 (i.e., 11000000).",
+            "Substeps": [
+                {
+                    "SubstepNumber": 6.1,
+                    "SubstepString": "Execute a PHP snippet to perform AND operation on MD5 hash characters and 0xC0.",
+                    "Category": "Cryptography and Encoding Management",
+                    "Subcategory": "Cryptographic Data Transformation",
+                    "Techniques": "Cryptographic Technique Application"
+                }
+            ]
+        },
+        {
+            "StepNumber": 7,
+            "StepString": "The script identifies that the first three characters of the hash are 0, indicating that the original characters were numbers.",
+            "Substeps": [
+                {
+                    "SubstepNumber": 7.1,
+                    "SubstepString": "Analyze the script output to determine the characteristics of the first three characters of the hash.",
+                    "Category": "Cryptography and Encoding Management",
+                    "Subcategory": "Cryptographic Data Transformation",
+                    "Techniques": "Data Encoding/Decoding"
+                }
+            ]
+        },
+        {
+            "StepNumber": 8,
+            "StepString": "The potential vulnerability is located in a type juggling in the comparison: $session_data['hash'] != strtoupper(MD5($cfg_pass)).",
+            "Substeps": [
+                {
+                    "SubstepNumber": 8.1,
+                    "SubstepString": "Identify the potential vulnerability in the type juggling comparison.",
+                    "Category": "Vulnerability and Exploitation Management",
+                    "Subcategory": "Vulnerability Assessment",
+                    "Techniques": "Vulnerability Identification and Analysis"
+                },
+                {
+                    "SubstepNumber": 8.2,
+                    "SubstepString": "Examine the comparison: $session_data['hash'] != strtoupper(MD5($cfg_pass)).",
+                    "Category": "Cryptography and Encoding Management",
+                    "Subcategory": "Cryptographic Analysis and Exploitation",
+                    "Techniques": "Cryptographic Algorithm Identification and Analysis"
+                }
+            ]
+        },
+        {
+            "StepNumber": 9,
+            "StepString": "To exploit the vulnerability, the attacker must guess the numbers at the beginning of the MD5 string.",
+            "Substeps": [
+                {
+                    "SubstepNumber": 9.1,
+                    "SubstepString": "Understand the requirement for exploiting the vulnerability: guessing the initial numbers of the MD5 string.",
+                    "Category": "Cryptography and Encoding Management",
+                    "Subcategory": "Cryptographic Analysis and Exploitation",
+                    "Techniques": "Cryptographic Exploitation Techniques"
+                }
+            ]
+        },
+        {
+            "StepNumber": 10,
+            "StepString": "A Python script (my-admin-panel.py) is provided to automate the process of checking different cookie values and finding the correct one.",
+            "Substeps": [
+                {
+                    "SubstepNumber": 10.1,
+                    "SubstepString": "Review the provided Python script: my-admin-panel.py.",
+                    "Category": "Tool Utilization and Scripting",
+                    "Subcategory": "Tool Management",
+                    "Techniques": "Tool Configuration and Setup"
+                },
+                {
+                    "SubstepNumber": 10.2,
+                    "SubstepString": "Understand the purpose of the script: automating the search for the correct otadmin cookie value.",
+                    "Category": "Tool Utilization and Scripting",
+                    "Subcategory": "Scripting and Automation Management",
+                    "Techniques": "Script Development"
+                }
+            ]
+        },
+        {
+            "StepNumber": 11,
+            "StepString": "With the cookie otadmin={\"hash\": 389}, the flag is obtained: p4{wtf_php_comparisons_how_do_they_work}.",
+            "Substeps": [
+                {
+                    "SubstepNumber": 11.1,
+                    "SubstepString": "Utilize the identified correct otadmin cookie value: {\"hash\": 389}.",
+                    "Category": "Authentication and Authorization Management",
+                    "Subcategory": "Credential Management",
+                    "Techniques": "Token and Cookie Management"
+                },
+                {
+                    "SubstepNumber": 11.2,
+                    "SubstepString": "Retrieve the flag: p4{wtf_php_comparisons_how_do_they_work}.",
+                    "Category": "Data Management",
+                    "Subcategory": "Data Leakage and Extraction",
+                    "Techniques": "Flag Data Leakage and Extraction"
+                }
+            ]
+        }
+    ]
+}

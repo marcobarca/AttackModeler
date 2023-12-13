@@ -1,0 +1,204 @@
+--------------------------------------------------------------------------------
+Node: 1.1
+        * String: Connect to the website with active directory listing.
+        * Technique: W
+        * Digital Artefacts:
+                - No digital artefacts
+        * Hidden Neighbors:
+                - Node: 2.1
+                        * String: Access the content of the login.php.bak file.
+                        * Technique: F
+                        * Digital Artefacts:
+                                - file | Attributes: {'filename': 'login.php.bak', 'extension': '.bak', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 1.2
+        * String: Observe the presence of two files: login.php and login.php.bak.
+        * Technique: W
+        * Digital Artefacts:
+                - file | Attributes: {'filename': 'login', 'extension': '.php', 'description': ''}
+        * Hidden Neighbors:
+                - Node: 2.2
+                        * String: Identify and analyze the PHP source code within login.php.bak.
+                        * Technique: C
+                        * Digital Artefacts:
+                                - code | Attributes: {'language': 'PHP', 'description': '', 'context': 'login.php.bak'}
+--------------------------------------------------------------------------------
+Node: 2.1
+        * String: Access the content of the login.php.bak file.
+        * Technique: F
+        * Digital Artefacts:
+                - file | Attributes: {'filename': 'login.php.bak', 'extension': '.bak', 'description': ''}
+        * Hidden Neighbors:
+                - Node: 3.1
+                        * String: Examine the PHP source code for the specified cookie requirement.
+                        * Technique: C
+                        * Digital Artefacts:
+                                - cookie | Attributes: {'name': '', 'value': '', 'exipration_time': '', 'description': 'Examine the PHP source code for the specified cookie requirement.'}
+                                - code | Attributes: {'language': 'PHP', 'description': '', 'context': 'specified cookie requirement'}
+--------------------------------------------------------------------------------
+Node: 2.2
+        * String: Identify and analyze the PHP source code within login.php.bak.
+        * Technique: C
+        * Digital Artefacts:
+                - code | Attributes: {'language': 'PHP', 'description': '', 'context': 'login.php.bak'}
+        * Hidden Neighbors:
+                - Node: 3.2
+                        * String: Identify the regex pattern /^{"hash": [0-9A-Z"]+}$/ for the otadmin cookie.
+                        * Technique: D
+                        * Digital Artefacts:
+                                - cookie | Attributes: {'name': '', 'value': '', 'expiration_time': '', 'description': 'Identify the regex pattern /^{"hash": [0-9A-Z"]+}$/ for the otadmin cookie.'}
+                                - encoded_data | Attributes: {'data': 'the regex pattern /^{"hash": [0-9A-Z"]+}$/', 'encoding': '', 'description': 'Identify the regex pattern /^{"hash": [0-9A-Z"]+}$/ for the otadmin cookie.'}
+--------------------------------------------------------------------------------
+Node: 3.1
+        * String: Examine the PHP source code for the specified cookie requirement.
+        * Technique: C
+        * Digital Artefacts:
+                - cookie | Attributes: {'name': '', 'value': '', 'exipration_time': '', 'description': 'Examine the PHP source code for the specified cookie requirement.'}
+                - code | Attributes: {'language': 'PHP', 'description': '', 'context': 'specified cookie requirement'}
+        * Hidden Neighbors:
+                - Node: 4.1
+                        * String: Determine a valid value for the otadmin cookie: {"hash": "T35T"}.
+                        * Technique: T
+                        * Digital Artefacts:
+                                - cookie | Attributes: {'name': 'otadmin', 'value': '', 'exipration_time': '', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 3.2
+        * String: Identify the regex pattern /^{"hash": [0-9A-Z"]+}$/ for the otadmin cookie.
+        * Technique: D
+        * Digital Artefacts:
+                - cookie | Attributes: {'name': '', 'value': '', 'expiration_time': '', 'description': 'Identify the regex pattern /^{"hash": [0-9A-Z"]+}$/ for the otadmin cookie.'}
+                - encoded_data | Attributes: {'data': 'the regex pattern /^{"hash": [0-9A-Z"]+}$/', 'encoding': '', 'description': 'Identify the regex pattern /^{"hash": [0-9A-Z"]+}$/ for the otadmin cookie.'}
+        * Hidden Neighbors:
+                - Node: 5.1
+                        * String: Check if the provided otadmin cookie value differs from the MD5 hash of $cfg_pass.
+                        * Technique: T
+                        * Digital Artefacts:
+                                - cookie | Attributes: {'name': 'otadmin cookie', 'value': '', 'expiration_time': '', 'description': ''}
+                                - hash_value | Attributes: {'hash': 'MD5', 'algorithm': 'MD5', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 4.1
+        * String: Determine a valid value for the otadmin cookie: {"hash": "T35T"}.
+        * Technique: T
+        * Digital Artefacts:
+                - cookie | Attributes: {'name': 'otadmin', 'value': '', 'exipration_time': '', 'description': ''}
+        * Hidden Neighbors:
+                - Node: 5.2
+                        * String: Provide a hint if the values do not match.
+                        * Technique: G
+                        * Digital Artefacts:
+                - No digital artefacts
+--------------------------------------------------------------------------------
+Node: 5.1
+        * String: Check if the provided otadmin cookie value differs from the MD5 hash of $cfg_pass.
+        * Technique: T
+        * Digital Artefacts:
+                - cookie | Attributes: {'name': 'otadmin cookie', 'value': '', 'expiration_time': '', 'description': ''}
+                - hash_value | Attributes: {'hash': 'MD5', 'algorithm': 'MD5', 'description': ''}
+        * No Hidden Neighbors
+--------------------------------------------------------------------------------
+Node: 5.2
+        * String: Provide a hint if the values do not match.
+        * Technique: G
+        * Digital Artefacts:
+                - No digital artefacts
+        * No Hidden Neighbors
+--------------------------------------------------------------------------------
+Node: 6.1
+        * String: Execute a PHP snippet to perform AND operation on MD5 hash characters and 0xC0.
+        * Technique: C
+        * Digital Artefacts:
+                - hash_value | Attributes: {'hash': 'MD5', 'algorithm': '', 'description': 'Execute a PHP snippet to perform AND operation on MD5 hash characters and 0xC0.'}
+        * No Hidden Neighbors
+--------------------------------------------------------------------------------
+Node: 7.1
+        * String: Analyze the script output to determine the characteristics of the first three characters of the hash.
+        * Technique: D
+        * Digital Artefacts:
+                - encoded_data | Attributes: {'data': '', 'encoding': '', 'description': 'Analyze the script output to determine the characteristics of the first three characters of the hash.'}
+                - hash_value | Attributes: {'hash': '', 'algorithm': '', 'description': 'Analyze the script output to determine the characteristics of the first three characters of the hash.'}
+        * No Hidden Neighbors
+--------------------------------------------------------------------------------
+Node: 8.1
+        * String: Identify the potential vulnerability in the type juggling comparison.
+        * Technique: V
+        * Digital Artefacts:
+                - vulnerability | Attributes: {'type': 'type juggling comparison', 'cve_number': '', 'description': ''}
+        * No Hidden Neighbors
+--------------------------------------------------------------------------------
+Node: 8.2
+        * String: Examine the comparison: $session_data['hash'] != strtoupper(MD5($cfg_pass)).
+        * Technique: C
+        * Digital Artefacts:
+                - hash_value | Attributes: {'hash': "$session_data['hash']", 'algorithm': 'MD5', 'description': ''}
+        * No Hidden Neighbors
+--------------------------------------------------------------------------------
+Node: 9.1
+        * String: Understand the requirement for exploiting the vulnerability: guessing the initial numbers of the MD5 string.
+        * Technique: C
+        * Digital Artefacts:
+                - vulnerability | Attributes: {'type': '', 'cve_number': '', 'description': 'guessing the initial numbers of the MD5 string.'}
+                - hash_value | Attributes: {'hash': 'MD5', 'algorithm': 'MD5', 'description': 'guessing the initial numbers of the MD5 string'}
+        * Hidden Neighbors:
+                - Node: 10.2
+                        * String: Understand the purpose of the script: automating the search for the correct otadmin cookie value.
+                        * Technique: S
+                        * Digital Artefacts:
+                                - cookie | Attributes: {'name': '', 'value': '', 'expiration_time': '', 'description': ''}
+                - Node: 10.1
+                        * String: Review the provided Python script: my-admin-panel.py.
+                        * Technique: T
+                        * Digital Artefacts:
+                                - code | Attributes: {'language': 'Python', 'description': '', 'context': ''}
+                                - tool | Attributes: {'name': 'my-admin-panel.py', 'description': '', 'purpose': ''}
+--------------------------------------------------------------------------------
+Node: 10.1
+        * String: Review the provided Python script: my-admin-panel.py.
+        * Technique: T
+        * Digital Artefacts:
+                - code | Attributes: {'language': 'Python', 'description': '', 'context': ''}
+                - tool | Attributes: {'name': 'my-admin-panel.py', 'description': '', 'purpose': ''}
+        * Hidden Neighbors:
+                - Node: 10.2
+                        * String: Understand the purpose of the script: automating the search for the correct otadmin cookie value.
+                        * Technique: S
+                        * Digital Artefacts:
+                                - cookie | Attributes: {'name': '', 'value': '', 'expiration_time': '', 'description': ''}
+                - Node: 11.1
+                        * String: Utilize the identified correct otadmin cookie value: {"hash": 389}.
+                        * Technique: T
+                        * Digital Artefacts:
+                                - cookie | Attributes: {'name': '', 'value': '389', 'exipration_time': '', 'description': ''}
+                                - hash_value | Attributes: {'hash': '389', 'algorithm': '', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 10.2
+        * String: Understand the purpose of the script: automating the search for the correct otadmin cookie value.
+        * Technique: S
+        * Digital Artefacts:
+                - cookie | Attributes: {'name': '', 'value': '', 'expiration_time': '', 'description': ''}
+        * Hidden Neighbors:
+                - Node: 11.1
+                        * String: Utilize the identified correct otadmin cookie value: {"hash": 389}.
+                        * Technique: T
+                        * Digital Artefacts:
+                                - cookie | Attributes: {'name': '', 'value': '389', 'exipration_time': '', 'description': ''}
+                                - hash_value | Attributes: {'hash': '389', 'algorithm': '', 'description': ''}
+--------------------------------------------------------------------------------
+Node: 11.1
+        * String: Utilize the identified correct otadmin cookie value: {"hash": 389}.
+        * Technique: T
+        * Digital Artefacts:
+                - cookie | Attributes: {'name': '', 'value': '389', 'exipration_time': '', 'description': ''}
+                - hash_value | Attributes: {'hash': '389', 'algorithm': '', 'description': ''}
+        * Hidden Neighbors:
+                - Node: 11.2
+                        * String: Retrieve the flag: p4{wtf_php_comparisons_how_do_they_work}.
+                        * Technique: F
+                        * Digital Artefacts:
+                                - flag | Attributes: {'flag': 'p4{wtf_php_comparisons_how_do_they_work}', 'description': '', 'context': ''}
+--------------------------------------------------------------------------------
+Node: 11.2
+        * String: Retrieve the flag: p4{wtf_php_comparisons_how_do_they_work}.
+        * Technique: F
+        * Digital Artefacts:
+                - flag | Attributes: {'flag': 'p4{wtf_php_comparisons_how_do_they_work}', 'description': '', 'context': ''}
+        * No Hidden Neighbors

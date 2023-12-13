@@ -1,0 +1,670 @@
+{
+    "Nodes": [
+        {
+            "Node": {
+                "node_number": "1.1",
+                "node_string": "Visited the website.",
+                "node_techniques": [
+                    "Web Page Access",
+                    "Information Gathering"
+                ],
+                "node_digital_artefacts": []
+            }
+        },
+        {
+            "Node": {
+                "node_number": "1.2",
+                "node_string": "Observed redirection to '/?file=wc.php'.",
+                "node_techniques": [
+                    "HTTP Response Inspection",
+                    "Page Behavior Analysis"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "wc",
+                            "extension": "php",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "2.1",
+                "node_string": "Visited '/?file=/etc/passwd'.",
+                "node_techniques": [
+                    "Web Page Access"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "/etc/passwd",
+                            "extension": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "2.2",
+                "node_string": "Confirmed server-side file inclusion.",
+                "node_techniques": [
+                    "Vulnerability Discovery"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "",
+                            "extension": "",
+                            "description": "Confirmed server-side file inclusion."
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "3.1",
+                "node_string": "Discorded 'robots.txt' file at '?file=robots.txt'.",
+                "node_techniques": [
+                    "Web Page Access",
+                    "Page Behavior Analysis"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "robots",
+                            "extension": "txt",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "url": {
+                            "value": "?file=robots.txt",
+                            "description": "",
+                            "purpose": "",
+                            "parameters": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "3.2",
+                "node_string": "Discovered the existence of 'checkpass.php'.",
+                "node_techniques": [
+                    "File Discovery",
+                    "Information Gathering"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "checkpass",
+                            "extension": "php",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "4.1",
+                "node_string": "Visited '/?file=checkpass.php'.",
+                "node_techniques": [
+                    "Web Page Access",
+                    "Path Identification"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "checkpass",
+                            "extension": "php",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "path": {
+                            "directory": "/?file=checkpass.php",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "4.2",
+                "node_string": "Realized the page contained some secret potentially usable code.",
+                "node_techniques": [
+                    "Page Behavior Analysis"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "code": {
+                            "language": "",
+                            "description": "",
+                            "context": "page"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "5.1",
+                "node_string": "Used 'php://filter' to view the source of 'checkpass.php'.",
+                "node_techniques": [
+                    "File Access",
+                    "Code Analysis"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "checkpass",
+                            "extension": "php",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "5.2",
+                "node_string": "Discovered the password 'w0rdc0unt123'.",
+                "node_techniques": [
+                    "Data Extraction",
+                    "Data Analysis"
+                ],
+                "node_digital_artefacts": []
+            }
+        },
+        {
+            "Node": {
+                "node_number": "6.1",
+                "node_string": "Used 'php://filter' again.",
+                "node_techniques": [
+                    "Code Analysis"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "code": {
+                            "language": "php",
+                            "description": "",
+                            "context": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "6.2",
+                "node_string": "Decoded base64 strings to view the source code of 'wc.php'.",
+                "node_techniques": [
+                    "Data Decoding",
+                    "Data Extraction"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "code": {
+                            "language": "",
+                            "description": "",
+                            "context": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "7.1",
+                "node_string": "Plugged the password ('w0rdc0unt123') from '$password' variable to the cookie.",
+                "node_techniques": [
+                    "Cookie Tampering",
+                    "Authentication"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "cookie": {
+                            "name": "",
+                            "value": "",
+                            "exipration_time": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "7.2",
+                "node_string": "Accessed the webpage.",
+                "node_techniques": [
+                    "Web Page Access"
+                ],
+                "node_digital_artefacts": []
+            }
+        },
+        {
+            "Node": {
+                "node_number": "8.1",
+                "node_string": "Identified that the user input '$text' from get param 'text' was being used.",
+                "node_techniques": [
+                    "Input Analysis"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "input_data": {
+                            "fields": "",
+                            "description": "Identified that the user input '$text' from get param 'text' was being used.",
+                            "context": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "8.2",
+                "node_string": "Realized '$text' was passed into 'exec' leading to potential remote code execution.",
+                "node_techniques": [
+                    "Code Execution",
+                    "Vulnerability Exploitation"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "code": {
+                            "language": "",
+                            "description": "potential remote code execution",
+                            "context": ""
+                        }
+                    },
+                    {
+                        "vulnerability": {
+                            "type": "",
+                            "cve_number": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "9.1",
+                "node_string": "Input the payload '; ls #'.",
+                "node_techniques": [
+                    "Command Execution",
+                    "Input Analysis"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "input_data": {
+                            "fields": "",
+                            "description": "",
+                            "context": ""
+                        }
+                    },
+                    {
+                        "shell_command": {
+                            "command": "",
+                            "description": "",
+                            "usage": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "10.1",
+                "node_string": "Realized 'echo exec(...)' only returns the last line of the output.",
+                "node_techniques": [
+                    "Code Analysis",
+                    "Code Modification"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "code": {
+                            "language": "",
+                            "description": "Realized 'echo exec(...)' only returns the last line of the output.",
+                            "context": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "11.1",
+                "node_string": "Input the payload to attempt to spawn a reverse shell.",
+                "node_techniques": [
+                    "Command Execution",
+                    "Attack Execution"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "shell_command": {
+                            "command": "spawn a reverse shell",
+                            "description": "",
+                            "usage": "Input the payload to attempt to spawn a reverse shell."
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "12.1",
+                "node_string": "Used shell access to browse the file system.",
+                "node_techniques": [
+                    "File System Observation"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "",
+                            "extension": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "shell_command": {
+                            "command": "",
+                            "description": "Used shell access to browse the file system.",
+                            "usage": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "12.2",
+                "node_string": "Discovered a folder '/ctf'.",
+                "node_techniques": [
+                    "File Discovery"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "folder": {
+                            "name": "/ctf",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "13.1",
+                "node_string": "Identified notable shell script 'findaas' inside '/ctf'.",
+                "node_techniques": [
+                    "File Discovery",
+                    "Data Analysis"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "findaas",
+                            "extension": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "shell_command": {
+                            "command": "findaas",
+                            "description": "",
+                            "usage": "/ctf"
+                        }
+                    },
+                    {
+                        "path": {
+                            "directory": "/ctf",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "folder": {
+                            "name": "/ctf",
+                            "description": "Identified notable shell script 'findaas'"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "14.1",
+                "node_string": "Executed './findaas flag.txt' command.",
+                "node_techniques": [
+                    "Command Execution",
+                    "File Access"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "flag",
+                            "extension": "txt",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "14.2",
+                "node_string": "Located 'flag.txt'.",
+                "node_techniques": [
+                    "File Discovery",
+                    "Data Extraction"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "flag",
+                            "extension": "txt",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "15.1",
+                "node_string": "Attempted to read the flag using 'cat ./system/of/a/down/flag.txt'.",
+                "node_techniques": [
+                    "File Access",
+                    "Command Execution"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "flag",
+                            "extension": "txt",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "shell_command": {
+                            "command": "cat ./system/of/a/down/flag.txt",
+                            "description": "",
+                            "usage": ""
+                        }
+                    },
+                    {
+                        "flag": {
+                            "flag": "./system/of/a/down/flag.txt",
+                            "description": "",
+                            "context": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "15.2",
+                "node_string": "Received permission denied error.",
+                "node_techniques": [
+                    "Permission Analysis",
+                    "Attack Execution"
+                ],
+                "node_digital_artefacts": []
+            }
+        },
+        {
+            "Node": {
+                "node_number": "16.1",
+                "node_string": "Read the 'README' file.",
+                "node_techniques": [
+                    "Data Analysis"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "README",
+                            "extension": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "16.2",
+                "node_string": "Found a password hash '6f246c872cbf0b7fd7530b7aa235e67e'.",
+                "node_techniques": [
+                    "Hash Analysis",
+                    "Hash Decoding"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "hash_value": {
+                            "hash": "6f246c872cbf0b7fd7530b7aa235e67e",
+                            "algorithm": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "17.1",
+                "node_string": "Decoded the password hash.",
+                "node_techniques": [
+                    "Hash Decoding"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "hash_value": {
+                            "hash": "decoded password hash",
+                            "algorithm": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "17.2",
+                "node_string": "Found password 'csictf'.",
+                "node_techniques": [
+                    "Credentials Discovery"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "credentials": {
+                            "username": "",
+                            "password": "csictf",
+                            "service": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "18.1",
+                "node_string": "Switched to the user 'ctf'.",
+                "node_techniques": [
+                    "Authentication"
+                ],
+                "node_digital_artefacts": []
+            }
+        },
+        {
+            "Node": {
+                "node_number": "18.2",
+                "node_string": "Authenticated using the password 'csictf'.",
+                "node_techniques": [
+                    "Authentication",
+                    "Credentials Discovery"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "credentials": {
+                            "username": "",
+                            "password": "csictf",
+                            "service": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "19.1",
+                "node_string": "Executed 'cat ./system/of/a/down/flag.txt' command.",
+                "node_techniques": [
+                    "Command Execution",
+                    "Path Identification"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "path": {
+                            "directory": "./system/of/a/down",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "shell_command": {
+                            "command": "cat ./system/of/a/down/flag.txt",
+                            "description": "",
+                            "usage": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "19.2",
+                "node_string": "Printed the flag.",
+                "node_techniques": [
+                    "Data Extraction"
+                ],
+                "node_digital_artefacts": [
+                    {
+                        "flag": {
+                            "flag": "Printed the flag.",
+                            "description": "",
+                            "context": ""
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

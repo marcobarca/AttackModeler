@@ -1,0 +1,8 @@
+Considering the following digital artefact and its attributes:
+Artefact Name: encoded_data
+Attributes:
+	- data
+	- encoding
+	- description
+
+Please fill the following attributes if they are mentioned in the node_string:

@@ -1,0 +1,8 @@
+Considering the following digital artefact and its attributes:
+Artefact Name: ip_address
+Attributes:
+	- ip
+	- location
+	- description
+
+Please fill the following attributes if they are mentioned in the node_string:

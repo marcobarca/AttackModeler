@@ -1,0 +1,69 @@
+{
+    "AttackModel": {
+      "AttackerCapabilities": [
+        "Knowledge of PHP language and common web vulnerabilities",
+        "Ability to analyze and understand source code",
+        "Skills in scripting (e.g., Python)"
+      ],
+      "Target": {
+        "Type": "Web application",
+        "Vulnerabilities": [
+          "Directory listing enabled on the web server",
+          "Insecure cookie handling",
+          "Type juggling vulnerability in PHP"
+        ],
+        "SecurityMeasures": [
+          "Use of MD5 hashing for password comparison",
+          "Attempt to obfuscate the MD5 hash through bitwise AND operation"
+        ]
+      },
+      "Steps": [
+        {
+          "StepNumber": "1",
+          "Description": "Identify the directory listing on the target web server",
+          "StepDetails": {
+            "Objective": "Discover the files present on the server and potentially access sensitive information.",
+            "Action": "Exploit directory listing to find relevant files.",
+            "Result": "Identification of 'login.php' and 'login.php.bak' files."
+          }
+        },
+        {
+          "StepNumber": "2",
+          "Description": "Analyze the 'login.php.bak' source code",
+          "StepDetails": {
+            "Objective": "Understand the authentication mechanism and potential vulnerabilities.",
+            "Action": "Review PHP source code for 'login.php.bak'.",
+            "Result": "Identification of the 'otadmin' cookie requirement and potential type juggling vulnerability."
+          }
+        },
+        {
+          "StepNumber": "3",
+          "Description": "Craft a valid 'otadmin' cookie",
+          "StepDetails": {
+            "Objective": "Create a crafted cookie that passes the authentication check.",
+            "Action": "Generate a cookie with a valid 'hash' value based on the discovered type juggling vulnerability.",
+            "Result": "Crafted 'otadmin' cookie: {'hash': 'T35T'}."
+          }
+        },
+        {
+          "StepNumber": "4",
+          "Description": "Identify the hint and potential vulnerability",
+          "StepDetails": {
+            "Objective": "Understand the hint provided in case of authentication failure.",
+            "Action": "Analyze the hint generation code and identify potential weaknesses.",
+            "Result": "Discovery of the type juggling vulnerability and the hint generation mechanism."
+          }
+        },
+        {
+          "StepNumber": "5",
+          "Description": "Exploit the type juggling vulnerability",
+          "StepDetails": {
+            "Objective": "Leverage the identified vulnerability to bypass authentication.",
+            "Action": "Implement a script in Python to iterate through possible 'hash' values.",
+            "Result": "Successful exploitation of the type juggling vulnerability, revealing the flag: 'p4{wtf_php_comparisons_how_do_they_work}'."
+          }
+        }
+      ]
+    }
+  }
+  

@@ -1,0 +1,331 @@
+{
+    "Nodes": [
+        {
+            "Node": {
+                "node_number": "1.1",
+                "node_string": "Connect to the website with active directory listing.",
+                "node_techniques": "Webpage Access",
+                "node_digital_artefacts": []
+            }
+        },
+        {
+            "Node": {
+                "node_number": "1.2",
+                "node_string": "Observe the presence of two files: login.php and login.php.bak.",
+                "node_techniques": "Webpage Elements Interaction and Testing",
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "login",
+                            "extension": ".php",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "2.1",
+                "node_string": "Access the content of the login.php.bak file.",
+                "node_techniques": "File and Directory Discovery",
+                "node_digital_artefacts": [
+                    {
+                        "file": {
+                            "filename": "login.php.bak",
+                            "extension": ".bak",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "2.2",
+                "node_string": "Identify and analyze the PHP source code within login.php.bak.",
+                "node_techniques": "Code Review and Analysis",
+                "node_digital_artefacts": [
+                    {
+                        "code": {
+                            "language": "PHP",
+                            "description": "",
+                            "context": "login.php.bak"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "3.1",
+                "node_string": "Examine the PHP source code for the specified cookie requirement.",
+                "node_techniques": "Code Review and Analysis",
+                "node_digital_artefacts": [
+                    {
+                        "cookie": {
+                            "name": "",
+                            "value": "",
+                            "exipration_time": "",
+                            "description": "Examine the PHP source code for the specified cookie requirement."
+                        }
+                    },
+                    {
+                        "code": {
+                            "language": "PHP",
+                            "description": "",
+                            "context": "specified cookie requirement"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "3.2",
+                "node_string": "Identify the regex pattern /^{\"hash\": [0-9A-Z\"]+}$/ for the otadmin cookie.",
+                "node_techniques": "Data Encoding/Decoding",
+                "node_digital_artefacts": [
+                    {
+                        "cookie": {
+                            "name": "",
+                            "value": "",
+                            "expiration_time": "",
+                            "description": "Identify the regex pattern /^{\"hash\": [0-9A-Z\"]+}$/ for the otadmin cookie."
+                        }
+                    },
+                    {
+                        "encoded_data": {
+                            "data": "the regex pattern /^{\"hash\": [0-9A-Z\"]+}$/",
+                            "encoding": "",
+                            "description": "Identify the regex pattern /^{\"hash\": [0-9A-Z\"]+}$/ for the otadmin cookie."
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "4.1",
+                "node_string": "Determine a valid value for the otadmin cookie: {\"hash\": \"T35T\"}.",
+                "node_techniques": "Token and Cookie Management",
+                "node_digital_artefacts": [
+                    {
+                        "cookie": {
+                            "name": "otadmin",
+                            "value": "",
+                            "exipration_time": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "5.1",
+                "node_string": "Check if the provided otadmin cookie value differs from the MD5 hash of $cfg_pass.",
+                "node_techniques": "Token and Cookie Management",
+                "node_digital_artefacts": [
+                    {
+                        "cookie": {
+                            "name": "otadmin cookie",
+                            "value": "",
+                            "expiration_time": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hash_value": {
+                            "hash": "MD5",
+                            "algorithm": "MD5",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "5.2",
+                "node_string": "Provide a hint if the values do not match.",
+                "node_techniques": "Gameplay Strategy Observation and Understanding",
+                "node_digital_artefacts": []
+            }
+        },
+        {
+            "Node": {
+                "node_number": "6.1",
+                "node_string": "Execute a PHP snippet to perform AND operation on MD5 hash characters and 0xC0.",
+                "node_techniques": "Cryptographic Technique Application",
+                "node_digital_artefacts": [
+                    {
+                        "hash_value": {
+                            "hash": "MD5",
+                            "algorithm": "",
+                            "description": "Execute a PHP snippet to perform AND operation on MD5 hash characters and 0xC0."
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "7.1",
+                "node_string": "Analyze the script output to determine the characteristics of the first three characters of the hash.",
+                "node_techniques": "Data Encoding/Decoding",
+                "node_digital_artefacts": [
+                    {
+                        "encoded_data": {
+                            "data": "",
+                            "encoding": "",
+                            "description": "Analyze the script output to determine the characteristics of the first three characters of the hash."
+                        }
+                    },
+                    {
+                        "hash_value": {
+                            "hash": "",
+                            "algorithm": "",
+                            "description": "Analyze the script output to determine the characteristics of the first three characters of the hash."
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "8.1",
+                "node_string": "Identify the potential vulnerability in the type juggling comparison.",
+                "node_techniques": "Vulnerability Identification and Analysis",
+                "node_digital_artefacts": [
+                    {
+                        "vulnerability": {
+                            "type": "type juggling comparison",
+                            "cve_number": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "8.2",
+                "node_string": "Examine the comparison: $session_data['hash'] != strtoupper(MD5($cfg_pass)).",
+                "node_techniques": "Cryptographic Algorithm Identification and Analysis",
+                "node_digital_artefacts": [
+                    {
+                        "hash_value": {
+                            "hash": "$session_data['hash']",
+                            "algorithm": "MD5",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "9.1",
+                "node_string": "Understand the requirement for exploiting the vulnerability: guessing the initial numbers of the MD5 string.",
+                "node_techniques": "Cryptographic Exploitation Techniques",
+                "node_digital_artefacts": [
+                    {
+                        "vulnerability": {
+                            "type": "",
+                            "cve_number": "",
+                            "description": "guessing the initial numbers of the MD5 string."
+                        }
+                    },
+                    {
+                        "hash_value": {
+                            "hash": "MD5",
+                            "algorithm": "MD5",
+                            "description": "guessing the initial numbers of the MD5 string"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "10.1",
+                "node_string": "Review the provided Python script: my-admin-panel.py.",
+                "node_techniques": "Tool Configuration and Setup",
+                "node_digital_artefacts": [
+                    {
+                        "code": {
+                            "language": "Python",
+                            "description": "",
+                            "context": ""
+                        }
+                    },
+                    {
+                        "tool": {
+                            "name": "my-admin-panel.py",
+                            "description": "",
+                            "purpose": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "10.2",
+                "node_string": "Understand the purpose of the script: automating the search for the correct otadmin cookie value.",
+                "node_techniques": "Script Development",
+                "node_digital_artefacts": [
+                    {
+                        "cookie": {
+                            "name": "",
+                            "value": "",
+                            "expiration_time": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "11.1",
+                "node_string": "Utilize the identified correct otadmin cookie value: {\"hash\": 389}.",
+                "node_techniques": "Token and Cookie Management",
+                "node_digital_artefacts": [
+                    {
+                        "cookie": {
+                            "name": "",
+                            "value": "389",
+                            "exipration_time": "",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "hash_value": {
+                            "hash": "389",
+                            "algorithm": "",
+                            "description": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "Node": {
+                "node_number": "11.2",
+                "node_string": "Retrieve the flag: p4{wtf_php_comparisons_how_do_they_work}.",
+                "node_techniques": "Flag Data Leakage and Extraction",
+                "node_digital_artefacts": [
+                    {
+                        "flag": {
+                            "flag": "p4{wtf_php_comparisons_how_do_they_work}",
+                            "description": "",
+                            "context": ""
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

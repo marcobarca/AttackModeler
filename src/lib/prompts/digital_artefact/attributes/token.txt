@@ -1,0 +1,10 @@
+Considering the following digital artefact and its attributes:
+Artefact Name: token
+Attributes:
+	- token
+	- token_type
+	- description
+	- expiration
+	- verification_algorithm
+
+Please fill the following attributes if they are mentioned in the node_string:
