@@ -4,6 +4,6 @@ The "AttackModeler" framework is designed to model and analyze attacker behavior
 
 ## Usage
 1. Add your GPT API KEY in AttackModeler/src/lib/gpt_api_call.py
-2. Type 'python3 example.py'
+2. Run with: python3 example.py
 
 
