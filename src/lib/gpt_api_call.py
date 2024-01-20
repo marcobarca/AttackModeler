@@ -8,7 +8,12 @@ api_key = "YOUR_API_KEY_HERE"
 # Initialize the OpenAI API client with your API key
 openai.api_key = api_key
 
-def api_call(result_queue, prompt, input_data, max_tokens=1400):
+# The model variable is used to select the version of the gpt model to use
+# The available versions are:
+#   - gpt-3.5-turbo
+#   - gpt-4-turbo (needed for the HiddenPaths)
+
+def api_call(result_queue, prompt, input_data, model, max_tokens=1400):
     try:
         # Call the OpenAI API with the provided step and prompt
         message_log = [
@@ -19,7 +24,7 @@ def api_call(result_queue, prompt, input_data, max_tokens=1400):
         ]
 
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model=model,
             messages=message_log,
             max_tokens=max_tokens,
             stop=None,
@@ -38,7 +43,7 @@ def timeout_check(result_queue, timeout_seconds):
 
 import multiprocessing
 
-def gpt_api_call(prompt, input_data, max_tokens=1400, max_retries=3, timeout_seconds=30):
+def gpt_api_call(prompt, input_data, max_tokens=1400, max_retries=3, timeout_seconds=30, model="gpt-3.5-turbo"):
     """
     Calls the GPT API with the given prompt and input data, and returns the response.
     
@@ -58,7 +63,7 @@ def gpt_api_call(prompt, input_data, max_tokens=1400, max_retries=3, timeout_sec
     terminated = False
     for i in range(max_retries):
         result_queue = multiprocessing.Queue()
-        process_api_call = multiprocessing.Process(target=api_call, args=(result_queue, prompt, input_data, max_tokens))
+        process_api_call = multiprocessing.Process(target=api_call, args=(result_queue, prompt, input_data, max_tokens, model))
         process_timeout_check = multiprocessing.Process(target=timeout_check, args=(result_queue, timeout_seconds,))
 
         process_api_call.start()

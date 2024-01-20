@@ -8,7 +8,7 @@ def main():
     hidden_paths_file = './data/input_data/links.txt'
     
     # Load attack from stepModel and links file
-    #attack = Attack.from_stepModel(stepModel_path, hidden_paths_file)
+    attack = Attack.from_stepModel(stepModel_path, hidden_paths_file)
 
     # Extract digital artefacts (GPT)
     #attack_with_digital_artefacts = digital_artefact_extraction(attack)
@@ -17,7 +17,7 @@ def main():
     #attack_with_digital_artefacts.save_as_pickle("bodycount", "./data/output_data")
 
     # Load attack (with digital artefacts) from pickle file as a NodeModel
-    attack = Attack.from_pickle("./data/output_data/bodycount.pkl")
+    #attack = Attack.from_pickle("./data/output_data/bodycount.pkl")
 
     # # Plot the graph
     #attack.plot()

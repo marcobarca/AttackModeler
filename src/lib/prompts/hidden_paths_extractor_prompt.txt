@@ -1,0 +1,10 @@
+Consider the following attack model, which is structured as an ordered sequence of substeps. 
+
+Your task is to identify and extract the hidden path between substeps. A path is considered hidden when it involves correlations between substeps that are not directly adjacent, requiring at least one intermediary substep between them. When replying, provide the links between substeps; for example, if Substep 1.1 is linked to Substep 4.2, your response should be {1.1, 4.2}.
+Highlight correlations, ensuring that they involve a maximum of two nodes. 
+
+For each link {substep x, substep y}, elucidate the correlation using the following template:
+
+{substep x, substep y} - info
+
+[StepModel]
