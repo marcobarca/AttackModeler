@@ -1,4 +1,4 @@
-![Alt Text](./presentation_images/logo.png)
+![Alt Text](./presentation_images/logo1.png)
 
 # AttackModeler
 
