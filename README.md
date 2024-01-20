@@ -1,7 +1,5 @@
 ![Alt Text](./presentation_images/logo1.png)
 
-# AttackModeler
-
 The "AttackModeler" framework is designed to model and analyze attacker behavior using OpenAI's GPT. It focuses on extracting information from previously modeled CTF reports, to create a comprehensive representation of attacks.
 
 ## What is a StepModel
