@@ -54,7 +54,7 @@ An edge connecting two non-consecutive nodes is referred to as a Hidden Path.
 
 ## 6. Hidden Paths File Example
 
-![Alt Text](ur./presentation_images/6.png)
+![Alt Text](./presentation_images/6.png)
 
 ## 7. Metodology Overview
 
